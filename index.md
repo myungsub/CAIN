@@ -2,6 +2,10 @@
 layout: default
 ---
 
+#### Myungsub Choi, Heewon Kim, Bohyung Han, Ning Xu, Kyoung Mu Lee
+
+#### 2nd place in [[AIM 2019 ICCV Workshop](http://www.vision.ee.ethz.ch/aim19/)] - Video Temporal Super-Resolution Challenge
+
 ## Abstract
 
 Prevailing video frame interpolation techniques rely heavily on optical flow estimation and require additional model complexity and computational cost; it is also susceptible to error propagation in challenging scenarios with large motion and heavy occlusion.
@@ -14,6 +18,22 @@ We construct a comprehensive evaluation benchmark and demonstrate that the propo
 ## Model
 
 <center><img src="./figures/overall_architecture.png" width="90%"></center>
+
+## Dataset
+
+- [ [Vimeo90K Triplet dataset](http://toflow.csail.mit.edu/) ]
+- **[ SNU-FILM benchmark ]** : SNU Frame Interpolation with Large Motion evaluation benchmark
+  - Our benchmark consists of test split of [GOPRO](https://github.com/SeungjunNah/DeepDeblur_release#dataset) dataset + manually collected video sequences from YouTube.
+  - The evaluation is 4 different settings: *Easy, Medium, Hard, Extreme*
+    - The average motion magnitude increases from *Easy* to *Extreme*
+  - Sample image (from GOPRO) and visualizations of its motion magnitude w.r.t. each evaluation setting
+
+<center><img src="./figures/snufilm_sample.png" width="100%"></center>
+
+### Download
+
+  - Selected frame triplets for evaluation: [[Download link]()]
+  - All frames: [[Download link]()]
 
 ## Results
 
