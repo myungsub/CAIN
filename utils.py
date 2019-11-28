@@ -30,11 +30,12 @@ from pytorch_msssim import ssim_matlab as ssim_pth
 # Training Helper Functions for making main.py clean
 ##########################
 
-def load_dataset(dataset_str, data_root, batch_size, test_batch_size, num_workers):
+def load_dataset(dataset_str, data_root, batch_size, test_batch_size, num_workers, test_mode):
 
     if dataset_str == 'snufilm':
         from data.snufilm import get_loader
-        from data.vimeo90k import get_loader as get_test_loader
+        test_loader = get_loader('test', data_root, test_batch_size, shuffle=False, num_workers=num_workers, test_mode=test_mode)
+        return None, test_loader
     elif dataset_str == 'vimeo90k':
         from data.vimeo90k import get_loader
     elif dataset_str == 'aim':
@@ -42,24 +43,22 @@ def load_dataset(dataset_str, data_root, batch_size, test_batch_size, num_worker
     else:
         raise NotImplementedError('Training / Testing for this dataset is not implemented.')
     
-    train_loader, _ = get_loader('train', data_root, batch_size, shuffle=True, num_workers=num_workers, n_frames=2)
-    if dataset_str == 'snufilm':
-        test_loader, _ = get_test_loader('test', data_root, test_batch_size, shuffle=False, num_workers=num_workers, n_frames=1)
-    elif dataset_str == 'aim':
-        test_loader, _ = get_loader('val', data_root, test_batch_size, shuffle=False, num_workers=num_workers, n_frames=1)
+    train_loader = get_loader('train', data_root, batch_size, shuffle=True, num_workers=num_workers)
+    if dataset_str == 'aim':
+        test_loader = get_loader('val', data_root, test_batch_size, shuffle=False, num_workers=num_workers)
     else:
-        test_loader, _ = get_loader('test', data_root, test_batch_size, shuffle=False, num_workers=num_workers, n_frames=1)
+        test_loader = get_loader('test', data_root, test_batch_size, shuffle=False, num_workers=num_workers)
 
     return train_loader, test_loader
 
 
-def build_input(images, meta, is_training=True, include_edge=False, device=torch.device('cuda')):
+def build_input(images, imgpaths, is_training=True, include_edge=False, device=torch.device('cuda')):
     if isinstance(images[0], list):
         images_gathered = [None, None, None]
         for j in range(len(images[0])):  # 3
             _images = [images[k][j] for k in range(len(images))]
             images_gathered[j] = torch.cat(_images, 0)
-        meta['imgpath'] = [p for _ in images for p in meta['imgpath']]
+        imgpaths = [p for _ in images for p in imgpaths]
         images = images_gathered
 
     im1, im2 = images[0].to(device), images[2].to(device)
@@ -71,8 +70,8 @@ def build_input(images, meta, is_training=True, include_edge=False, device=torch
 def load_checkpoint(args, model, optimizer, fix_loaded=False):
     if args.resume_exp is None:
         args.resume_exp = args.exp_name
-    #load_name = os.path.join('checkpoint', args.resume_exp, 'model_best.pth')
-    load_name = os.path.join('checkpoint', args.resume_exp, 'checkpoint.pth')
+    load_name = os.path.join('checkpoint', args.resume_exp, 'model_best.pth')
+    #load_name = os.path.join('checkpoint', args.resume_exp, 'checkpoint.pth')
     print("loading checkpoint %s" % load_name)
     checkpoint = torch.load(load_name)
     args.start_epoch = checkpoint['epoch'] + 1

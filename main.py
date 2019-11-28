@@ -36,7 +36,7 @@ if args.cuda:
 
 ##### Load Dataset #####
 train_loader, test_loader = utils.load_dataset(
-    args.dataset, args.data_root, args.batch_size, args.test_batch_size, args.num_workers)
+    args.dataset, args.data_root, args.batch_size, args.test_batch_size, args.num_workers, args.test_mode)
 
 
 ##### Build Model #####
@@ -94,10 +94,10 @@ def train(args, epoch):
     criterion.train()
 
     t = time.time()
-    for i, (images, meta) in enumerate(train_loader):
+    for i, (images, imgpaths) in enumerate(train_loader):
 
         # Build input batch
-        im1, im2, gt = utils.build_input(images, meta)
+        im1, im2, gt = utils.build_input(images, imgpaths)
 
         # Forward
         optimizer.zero_grad()
@@ -142,6 +142,10 @@ def test(args, epoch, eval_alpha=0.5):
     criterion.eval()
 
     save_folder = 'test%03d' % epoch
+    if args.dataset == 'snufilm':
+        save_folder = os.path.join(save_folder, args.dataset, args.test_mode)
+    else:
+        save_folder = os.path.join(save_folder, args.dataset)
     save_dir = os.path.join('checkpoint', args.exp_name, save_folder)
     utils.makedirs(save_dir)
     save_fn = os.path.join(save_dir, 'results.txt')
@@ -151,10 +155,10 @@ def test(args, epoch, eval_alpha=0.5):
 
     t = time.time()
     with torch.no_grad():
-        for i, (images, meta) in enumerate(tqdm(test_loader)):
+        for i, (images, imgpaths) in enumerate(tqdm(test_loader)):
 
             # Build input batch
-            im1, im2, gt = utils.build_input(images, meta, is_training=False)
+            im1, im2, gt = utils.build_input(images, imgpaths, is_training=False)
 
             # Forward
             out, feats = model(im1, im2)
@@ -171,16 +175,17 @@ def test(args, epoch, eval_alpha=0.5):
 
             # Log examples that have bad performance
             if (ssims.val < 0.9 or psnrs.val < 25) and epoch > 50:
+                print(imgpaths)
                 print("\nLoss: %f, PSNR: %f, SSIM: %f, LPIPS: %f" %
                       (losses['total'].val, psnrs.val, ssims.val, lpips.val))
-                print(meta['imgpath'][1][-1])
+                print(imgpaths[1][-1])
 
             # Save result images
             if ((epoch + 1) % 1 == 0 and i < 20) or args.mode == 'test':
                 savepath = os.path.join('checkpoint', args.exp_name, save_folder)
 
                 for b in range(images[0].size(0)):
-                    paths = meta['imgpath'][1][b].split('/')
+                    paths = imgpaths[1][b].split('/')
                     fp = os.path.join(savepath, paths[-3], paths[-2])
                     if not os.path.exists(fp):
                         os.makedirs(fp)
