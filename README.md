@@ -4,7 +4,7 @@
 
 #### 2nd place in [[AIM 2019 ICCV Workshop](http://www.vision.ee.ethz.ch/aim19/)] - Video Temporal Super-Resolution Challenge
 
-[Project](https://myungsub.github.io/CAIN) | [Paper]() | [FactSheet]()
+[Project](https://myungsub.github.io/CAIN) | [Paper](https://aaai.org/Papers/AAAI/2020GB/AAAI-ChoiM.4773.pdf) | [FactSheet]()
 
 <center><img src="./figures/overall_architecture.png" width="90%"></center>
 
