@@ -1,6 +1,6 @@
 # Channel Attention Is All You Need for Video Frame Interpolation
 
-[Project](https://myungsub.github.io/CAIN) | [Paper]()
+[Project](https://myungsub.github.io/CAIN) | [Paper](https://aaai.org/Papers/AAAI/2020GB/AAAI-ChoiM.4773.pdf)
 
 <center><img src="./figures/overall_architecture.png" width="90%"></center>
 
@@ -11,6 +11,7 @@ project
 │   README.md
 |   run.sh - main script to train CAIN model
 |   run_noca.sh - script to train CAIN_NoCA model
+|   test_custom.sh - script to run interpolation on custom dataset
 |   main.py - main file to run train/val
 └───model
 │   │   common.py
@@ -19,6 +20,7 @@ project
 |   |   cain_encdec.py - model with additional encoder-decoder
 └───data - implements dataloaders for each dataset
 │   |   vimeo90k.py - main training / testing dataset
+|   |   video.py - custom data for testing
 │   └───symbolic links to each dataset
 |       | ...
 ```
@@ -47,11 +49,17 @@ conda install tqdm opencv
 
 ## Usage
 
+#### Training / Testing with Vimeo90K dataset
 - First make symbolic links in `data/` folder : `ln -s /path/to/vimeo_triplet_data/ ./data/vimeo_triplet`
-  - [Vimeo90K dataset]()
+  - [Vimeo90K dataset](http://toflow.csail.mit.edu/)
 - For training: `CUDA_VISIBLE_DEVICES=0 python main.py --exp_name EXPNAME --batch_size 16 --test_batch_size 16 --dataset vimeo90k --model cain --loss 1*L1 --max_epoch 200 --lr 0.0002`
 - Or, just run `./run.sh`
 - For testing performance on Vimeo90K dataset, just add `--mode test` option
+
+#### Interpolating with custom video
+- Download pretrained models from [Here](https://drive.google.com/open?id=1BHy1gkejHxy-7vCwKczTb4Jviks8KOd3)
+- Prepare frame sequences in `data/frame_seq`
+- run `test_custom.sh`
 
 ## Results
 
