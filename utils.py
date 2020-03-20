@@ -30,7 +30,7 @@ from pytorch_msssim import ssim_matlab as ssim_pth
 # Training Helper Functions for making main.py clean
 ##########################
 
-def load_dataset(dataset_str, data_root, batch_size, test_batch_size, num_workers):
+def load_dataset(dataset_str, data_root, batch_size, test_batch_size, num_workers, img_fmt='png'):
 
     if dataset_str == 'snufilm':
         from data.snufilm import get_loader
@@ -39,6 +39,10 @@ def load_dataset(dataset_str, data_root, batch_size, test_batch_size, num_worker
         from data.vimeo90k import get_loader
     elif dataset_str == 'aim':
         from data.aim import get_loader
+    elif dataset_str == 'custom':
+        from data.video import get_loader
+        test_loader = get_loader('test', data_root, test_batch_size, img_fmt=img_fmt, shuffle=False, num_workers=num_workers, n_frames=1)
+        return test_loader
     else:
         raise NotImplementedError('Training / Testing for this dataset is not implemented.')
     
@@ -71,8 +75,11 @@ def build_input(images, meta, is_training=True, include_edge=False, device=torch
 def load_checkpoint(args, model, optimizer, fix_loaded=False):
     if args.resume_exp is None:
         args.resume_exp = args.exp_name
-    #load_name = os.path.join('checkpoint', args.resume_exp, 'model_best.pth')
-    load_name = os.path.join('checkpoint', args.resume_exp, 'checkpoint.pth')
+    if args.mode == 'test':
+        load_name = os.path.join('checkpoint', args.resume_exp, 'model_best.pth')
+    else:
+        #load_name = os.path.join('checkpoint', args.resume_exp, 'model_best.pth')
+        load_name = os.path.join('checkpoint', args.resume_exp, 'checkpoint.pth')
     print("loading checkpoint %s" % load_name)
     checkpoint = torch.load(load_name)
     args.start_epoch = checkpoint['epoch'] + 1

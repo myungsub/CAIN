@@ -77,7 +77,7 @@ if args.resume:
 
 # Learning Rate Scheduler
 scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
-    optimizer, mode='min', factor=0.5, patience=3, verbose=True)
+    optimizer, mode='min', factor=0.5, patience=5, verbose=True)
 
 
 # Initialize LPIPS model if used for evaluation
@@ -137,6 +137,7 @@ def train(args, epoch):
 
 
 def test(args, epoch, eval_alpha=0.5):
+    print('Evaluating for epoch = %d' % epoch)
     losses, psnrs, ssims, lpips = utils.init_meters(args.loss)
     model.eval()
     criterion.eval()

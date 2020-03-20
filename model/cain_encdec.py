@@ -40,7 +40,7 @@ class Encoder(nn.Module):
 
 
 class Decoder(nn.Module):
-    def __init__(self, in_channels=256, out_channels=3, depth=3, norm=False, up_mode='shuffle'):
+    def __init__(self, in_channels=192, out_channels=3, depth=3, norm=False, up_mode='shuffle'):
         super(Decoder, self).__init__()
         self.device = torch.device('cuda')
 
@@ -72,7 +72,7 @@ class CAIN_EncDec(nn.Module):
         self.depth = depth
 
         self.encoder = Encoder(in_channels=3, depth=depth, norm=False)
-        self.decoder = Decoder(in_channels=256, depth=depth, norm=False, up_mode=up_mode)
+        self.decoder = Decoder(in_channels=start_filts*6, depth=depth, norm=False, up_mode=up_mode)
 
     def forward(self, x1, x2):
         x1, m1 = sub_mean(x1)
