@@ -60,8 +60,8 @@ class VimeoTriplet(Dataset):
             img3 = T(img3)
 
         imgs = [img1, img2, img3]
-        meta = {'imgpath': imgpaths}
-        return imgs, meta
+        
+        return imgs, imgpaths
 
     def __len__(self):
         if self.training:
@@ -71,12 +71,10 @@ class VimeoTriplet(Dataset):
         return 0
 
 
-def get_loader(mode, data_root, batch_size, shuffle, num_workers, n_frames=1):
+def get_loader(mode, data_root, batch_size, shuffle, num_workers, test_mode=None):
     if mode == 'train':
         is_training = True
     else:
         is_training = False
     dataset = VimeoTriplet(data_root, is_training=is_training)
-    #dataset = VimeoFineTune('data/vimeo_triplet', n_int_frames, is_training=is_training)
-    meta = [dataset.trainlist, dataset.testlist]
-    return DataLoader(dataset, batch_size=batch_size, shuffle=shuffle, num_workers=num_workers, pin_memory=True), meta
+    return DataLoader(dataset, batch_size=batch_size, shuffle=shuffle, num_workers=num_workers, pin_memory=True)

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 CUDA_VISIBLE_DEVICES=0 python main.py \
-    --exp_name CAIN_test \
+    --exp_name CAIN_train \
     --dataset vimeo90k \
     --batch_size 16 \
     --test_batch_size 16 \
@@ -12,6 +12,3 @@ CUDA_VISIBLE_DEVICES=0 python main.py \
     --lr 0.0002 \
     --log_iter 100 \
 #    --mode test
-#   --resume True \
-#   --resume_exp SH_5_12
-#   --fix_encoder
