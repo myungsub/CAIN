@@ -69,21 +69,17 @@ conda install tqdm opencv tensorboard
 
 ## Usage
 
-<<<<<<< HEAD
 #### Training / Testing with Vimeo90K dataset
 - First make symbolic links in `data/` folder : `ln -s /path/to/vimeo_triplet_data/ ./data/vimeo_triplet`
   - [Vimeo90K dataset](http://toflow.csail.mit.edu/)
 - For training: `CUDA_VISIBLE_DEVICES=0 python main.py --exp_name EXPNAME --batch_size 16 --test_batch_size 16 --dataset vimeo90k --model cain --loss 1*L1 --max_epoch 200 --lr 0.0002`
-=======
-- Training: `CUDA_VISIBLE_DEVICES=0 python main.py --exp_name EXPNAME --batch_size 16 --test_batch_size 16 --dataset vimeo90k --model cain --loss 1*L1 --max_epoch 200 --lr 0.0002`
->>>>>>> 89e4c137938ab1348477fda6e1f31ab0e3a7f594
 - Or, just run `./run.sh`
 - For testing performance on Vimeo90K dataset, just add `--mode test` option
 - For testing on SNU-FILM dataset, run `./eval.sh`
   - Testing mode (choose from ['easy', 'medium', 'hard', 'extreme']) can be modified by changing `--test_mode` option in `eval.sh`.
 
 #### Interpolating with custom video
-- Download pretrained models from [Here](https://drive.google.com/open?id=1BHy1gkejHxy-7vCwKczTb4Jviks8KOd3)
+- Download pretrained models from [[Here](https://www.dropbox.com/s/y1xf46m2cbwk7yf/pretrained_cain.pth?dl=0)
 - Prepare frame sequences in `data/frame_seq`
 - run `test_custom.sh`
 
