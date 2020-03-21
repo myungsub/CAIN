@@ -21,6 +21,9 @@ We construct a comprehensive evaluation benchmark and demonstrate that the propo
 
 <center><img src="./figures/overall_architecture.png" width="90%"></center>
 
+- Download pretrained CAIN model from [[Here](https://www.dropbox.com/s/y1xf46m2cbwk7yf/pretrained_cain.pth?dl=0)]
+
+
 ## Dataset
 
 - [ [Vimeo90K Triplet dataset](http://toflow.csail.mit.edu/) ]
@@ -34,8 +37,8 @@ We construct a comprehensive evaluation benchmark and demonstrate that the propo
 
 ### Download
 
-  - Selected frame triplets for evaluation: [[Download link]()]
-  - All frames: [[Download link]()]
+  - Selected frame triplets for evaluation: [[Download link](https://www.dropbox.com/s/2zmnzsquv5ounvq/eval_modes.zip?dl=0)]
+  - All RGB frames: [[Download link](https://www.dropbox.com/s/32wpcpt5izkhoh8/snufilm-test.zip?dl=0)]
 
 ## Results
 
