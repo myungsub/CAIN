@@ -6,7 +6,10 @@ layout: default
 
 #### 2nd place in [[AIM 2019 ICCV Workshop](http://www.vision.ee.ethz.ch/aim19/)] - Video Temporal Super-Resolution Challenge
 
-[Code](https://github.com/myungsub/CAIN/) | [Paper](https://aaai.org/Papers/AAAI/2020GB/AAAI-ChoiM.4773.pdf) | [FactSheet]()
+[Project](https://myungsub.github.io/CAIN) | [Paper](https://aaai.org/Papers/AAAI/2020GB/AAAI-ChoiM.4773.pdf) | [Poster](https://www.dropbox.com/s/7lxwka16qkuacvh/AAAI-ChoiM.4773.pdf)
+
+<a href="https://aaai.org/Papers/AAAI/2020GB/AAAI-ChoiM.4773.pdf" rel="Video"><img src="./figures/CAIN_paper_thumb.jpg" alt="Paper" width="75%"></a>
+<a href="https://www.dropbox.com/s/7lxwka16qkuacvh/AAAI-ChoiM.4773.pdf" rel="Poster"><embed src="./figures/CAIN_poster.pdf" alt="Poster" width="20%"></a>
 
 ## Abstract
 
@@ -43,6 +46,10 @@ We construct a comprehensive evaluation benchmark and demonstrate that the propo
 ## Results
 
 <center><img src="./figures/qualitative_vimeo.png" width="100%"></center>
+
+### Video
+
+<a href="https://www.dropbox.com/s/es2geeg26wwgezk/demo_combined_hires.mp4" rel="Video"><img src="./figures/CAIN_spotlight_thumb.jpg" alt="Video" width="100%"></a>
 
 ## Citation
 
