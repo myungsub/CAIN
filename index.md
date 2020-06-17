@@ -2,14 +2,13 @@
 layout: default
 ---
 
-#### Myungsub Choi, Heewon Kim, Bohyung Han, Ning Xu, Kyoung Mu Lee
+#### [Myungsub Choi](https://myungsub.github.io), Heewon Kim, Bohyung Han, Ning Xu, Kyoung Mu Lee
 
 #### 2nd place in [[AIM 2019 ICCV Workshop](http://www.vision.ee.ethz.ch/aim19/)] - Video Temporal Super-Resolution Challenge
 
 [Project](https://myungsub.github.io/CAIN) | [Paper](https://aaai.org/Papers/AAAI/2020GB/AAAI-ChoiM.4773.pdf) | [Poster](https://www.dropbox.com/s/7lxwka16qkuacvh/AAAI-ChoiM.4773.pdf)
 
-<a href="https://aaai.org/Papers/AAAI/2020GB/AAAI-ChoiM.4773.pdf" rel="Video"><img src="./figures/CAIN_paper_thumb.jpg" alt="Paper" width="75%"></a>
-<a href="https://www.dropbox.com/s/7lxwka16qkuacvh/AAAI-ChoiM.4773.pdf" rel="Poster"><embed src="./figures/CAIN_poster.pdf" alt="Poster" width="20%"></a>
+<a href="https://aaai.org/Papers/AAAI/2020GB/AAAI-ChoiM.4773.pdf" rel="Video"><img src="./figures/CAIN_paper_thumb.jpg" alt="Paper" width="95%"></a>
 
 ## Abstract
 
@@ -72,3 +71,6 @@ Many parts of this code is adapted from:
 - [RCAN](https://github.com/yulunzhang/RCAN)
 
 We thank the authors for sharing codes for their great works.
+
+---
+For further questions, please contact [@myungsub](https://myungsub.github.io))
