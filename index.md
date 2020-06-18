@@ -2,7 +2,7 @@
 layout: default
 ---
 
-#### [Myungsub Choi](https://myungsub.github.io), Heewon Kim, Bohyung Han, Ning Xu, Kyoung Mu Lee
+#### [Myungsub Choi](https://myungsub.github.io), [Heewon Kim](https://scholar.google.com/citations?user=B1Yuz3gAAAAJ&hl=en), [Bohyung Han](https://cv.snu.ac.kr/index.php/~bhhan/), [Ning Xu](https://www.linkedin.com/in/ningxu01/), [Kyoung Mu Lee](https://cv.snu.ac.kr/index.php/~kmlee/)
 
 #### 2nd place in [[AIM 2019 ICCV Workshop](http://www.vision.ee.ethz.ch/aim19/)] - Video Temporal Super-Resolution Challenge
 
