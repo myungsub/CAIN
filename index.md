@@ -6,7 +6,7 @@ layout: default
 
 #### 2nd place in [[AIM 2019 ICCV Workshop](http://www.vision.ee.ethz.ch/aim19/)] - Video Temporal Super-Resolution Challenge
 
-[Project](https://myungsub.github.io/CAIN) | [Paper](https://aaai.org/Papers/AAAI/2020GB/AAAI-ChoiM.4773.pdf) | [Poster](https://www.dropbox.com/s/7lxwka16qkuacvh/AAAI-ChoiM.4773.pdf)
+[Project](https://myungsub.github.io/CAIN) | [Paper-AAAI](https://aaai.org/Papers/AAAI/2020GB/AAAI-ChoiM.4773.pdf) (Download the paper [[here](https://www.dropbox.com/s/b62wnroqdd5lhfc/AAAI-ChoiM.4773.pdf?dl=0)] in case the AAAI link is broken) | [Poster](https://www.dropbox.com/s/7lxwka16qkuacvh/AAAI-ChoiM.4773.pdf)
 
 <a href="https://aaai.org/Papers/AAAI/2020GB/AAAI-ChoiM.4773.pdf" rel="Video"><img src="./figures/CAIN_paper_thumb.jpg" alt="Paper" width="95%"></a>
 
