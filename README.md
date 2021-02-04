@@ -4,7 +4,7 @@
 
 #### 2nd place in [[AIM 2019 ICCV Workshop](http://www.vision.ee.ethz.ch/aim19/)] - Video Temporal Super-Resolution Challenge
 
-[Project](https://myungsub.github.io/CAIN) | [Paper-AAAI](https://aaai.org/Papers/AAAI/2020GB/AAAI-ChoiM.4773.pdf) (Download the paper [[here](https://www.dropbox.com/s/b62wnroqdd5lhfc/AAAI-ChoiM.4773.pdf?dl=0)] in case the AAAI link is broken) | [Poster](https://www.dropbox.com/s/7lxwka16qkuacvh/AAAI-ChoiM.4773.pdf)
+[Project](https://myungsub.github.io/CAIN) | [Paper-AAAI](https://aaai.org/ojs/index.php/AAAI/article/view/6693/6547) (Download the paper [[here](https://www.dropbox.com/s/b62wnroqdd5lhfc/AAAI-ChoiM.4773.pdf?dl=0)] in case the AAAI link is broken) | [Poster](https://www.dropbox.com/s/7lxwka16qkuacvh/AAAI-ChoiM.4773.pdf)
 
 <a href="https://aaai.org/Papers/AAAI/2020GB/AAAI-ChoiM.4773.pdf" rel="Video"><img src="./figures/CAIN_paper_thumb.jpg" alt="Paper" width="75%"></a>
 <a href="https://www.dropbox.com/s/7lxwka16qkuacvh/AAAI-ChoiM.4773.pdf" rel="Poster"><embed src="./figures/CAIN_poster.pdf" alt="Poster" width="20%"></a>
@@ -85,7 +85,7 @@ conda install tqdm opencv tensorboard
   - Testing mode (choose from ['easy', 'medium', 'hard', 'extreme']) can be modified by changing `--test_mode` option in `eval.sh`.
 
 #### Interpolating with custom video
-- Download pretrained models from [[Here](https://www.dropbox.com/s/y1xf46m2cbwk7yf/pretrained_cain.pth?dl=0)
+- Download pretrained models from [[Here](https://www.dropbox.com/s/y1xf46m2cbwk7yf/pretrained_cain.pth?dl=0)]
 - Prepare frame sequences in `data/frame_seq`
 - run `test_custom.sh`
 
