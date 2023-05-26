@@ -44,10 +44,13 @@ class VimeoTriplet(Dataset):
         if self.training:
             seed = random.randint(0, 2**32)
             random.seed(seed)
+            torch.manual_seed(seed)
             img1 = self.transforms(img1)
             random.seed(seed)
+            torch.manual_seed(seed)
             img2 = self.transforms(img2)
             random.seed(seed)
+            torch.manual_seed(seed)
             img3 = self.transforms(img3)
             # Random Temporal Flip
             if random.random() >= 0.5:
